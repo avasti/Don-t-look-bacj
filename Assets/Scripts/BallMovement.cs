@@ -1,5 +1,6 @@
 ﻿using UnityEngine;
 using System.Collections;
+using UnityEngine.SceneManagement;
 
 public class BallMovement : MonoBehaviour {
     public float speed, maxSpeed;
@@ -11,8 +12,8 @@ public class BallMovement : MonoBehaviour {
 	
 	// Update is called once per frame
 	void FixedUpdate() {
-        transform.Translate(new Vector3(0.1f * speed, 0, 0));       
-        speed += 0.01f;
+        transform.Translate(new Vector3(Time.deltaTime * 2 * speed, 0, 0));       
+        speed += Time.deltaTime;
         speed = Mathf.Min(speed, maxSpeed);
         if (player.transform.position.x < transform.position.x)
         {
@@ -25,7 +26,14 @@ public class BallMovement : MonoBehaviour {
     {
         if (other.gameObject.name != "Terra")
         {
-            Destroy(other.gameObject);
+            if (other.gameObject.tag == "Player")
+            {
+                SceneManager.LoadScene(0);
+            }
+            else
+            {
+                Destroy(other.gameObject);
+            }
         }
     }
 }

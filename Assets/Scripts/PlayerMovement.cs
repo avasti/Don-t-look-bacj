@@ -1,11 +1,15 @@
 ﻿using UnityEngine;
 using System.Collections;
+using UnityEngine.UI;
 
 public class PlayerMovement : MonoBehaviour {
-    public float speed;
-    float copyMaxSpeed;
+    public float speed;   
     public float maxSpeed = 5;
     public float jumpSpeed = 500;
+    public Image img;
+    public Sprite empty;
+
+    float copyMaxSpeed;
     double time;
     bool isGround = false;
 	// Use this for initialization
@@ -14,8 +18,8 @@ public class PlayerMovement : MonoBehaviour {
 	}
 	
 	// Update is called once per frame
-	void FixedUpdate() {
-        transform.Translate(new Vector3(0.1f * speed, 0, 0));
+	void Update() {
+        transform.Translate(new Vector3(Time.deltaTime * 2 * speed, 0, 0));
         if (Input.GetAxis("Jump") != 0 && isGround)
         {
             GetComponent<Rigidbody>().AddForce(new Vector3(0, jumpSpeed, 0));
@@ -25,12 +29,13 @@ public class PlayerMovement : MonoBehaviour {
         {
             maxSpeed = copyMaxSpeed;
             time = 0;
+            img.sprite = empty;
         }
         else
         {
             time -= Time.deltaTime;
         }
-        speed += 0.01f;
+		speed += Time.deltaTime;
         speed = Mathf.Min(speed, maxSpeed);
 	}
 
@@ -45,15 +50,17 @@ public class PlayerMovement : MonoBehaviour {
             transform.position = new Vector3(0, transform.position.y, 0);
         }
 
-        if (other.gameObject.name == "SpeedUp")
+        if (other.gameObject.tag == "Speed Up")
         {
             maxSpeed = 6;
             time = 2;
+            Destroy(other.gameObject);            
         }
-        if (other.gameObject.name == "SpeedDown")
+        if (other.gameObject.tag == "Speed Down")
         {
             maxSpeed = 3.2f;
             time = 1.3;
+            Destroy(other.gameObject);
         }
     }
 }

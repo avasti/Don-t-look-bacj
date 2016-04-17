@@ -4,7 +4,7 @@ using System.Collections;
 public class DestroyPlatforms : MonoBehaviour {
 
     public float forceAmount = 1000f;
-    public Rigidbody rb;
+    Rigidbody rb;
 
     void Start()
     {
@@ -13,7 +13,7 @@ public class DestroyPlatforms : MonoBehaviour {
 
     void OnCollisionEnter(Collision col)
     {
-        if (col.gameObject.name == "valla")
+        if (col.gameObject.tag == "Platform")
         {
             rb.AddForce(-transform.forward*forceAmount, ForceMode.Acceleration);
             rb.useGravity = true;
