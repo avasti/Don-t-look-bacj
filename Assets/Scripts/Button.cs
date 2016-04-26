@@ -7,8 +7,13 @@ public class Button : MonoBehaviour {
         switch (transform.gameObject.name)
         {
             case "Start":
+                SceneManager.LoadScene("SelectLevel");
+                break;
+
+            case "Lvl 01":
                 SceneManager.LoadScene("Scene");
                 break;
+
             case "Exit":
                 Application.Quit();
                 break;
