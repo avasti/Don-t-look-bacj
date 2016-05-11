@@ -3,7 +3,7 @@ using System.Collections;
 using UnityEngine.SceneManagement;
 
 public class BallMovement : MonoBehaviour {
-    public float speed, maxSpeed;
+    public float speed;
     public GameObject player;
 	// Use this for initialization
 	void Start () {
@@ -13,11 +13,18 @@ public class BallMovement : MonoBehaviour {
 	// Update is called once per frame
 	void FixedUpdate() {
         transform.Translate(new Vector3(Time.deltaTime * 2 * speed, 0, 0));       
-        speed += Time.deltaTime;
-        speed = Mathf.Min(speed, maxSpeed);
         if (player.transform.position.x < transform.position.x)
         {
-            Destroy(player);
+            Assets.Scripts.ScoreManager.score = 0;
+            SceneManager.LoadScene("Dead");
+        }        
+        if (player.transform.position.x - transform.position.x > 10)
+        {
+            speed = 6;
+        }
+        else
+        {
+            speed = 4;
         }
         transform.localScale += new Vector3(0.0001f, 0.0001f, 0);
     }    
@@ -28,7 +35,7 @@ public class BallMovement : MonoBehaviour {
         {
             if (other.gameObject.tag == "Player" || other.gameObject.tag == "GameController")
             {
-                Assets.Scripts.ScoreManager.Score = 0;
+                Assets.Scripts.ScoreManager.score = 0;
                 SceneManager.LoadScene("Dead");
             }
             else

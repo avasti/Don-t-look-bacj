@@ -1,26 +1,28 @@
-﻿using System.IO;
+﻿using Newtonsoft.Json;
+using System;
+using System.IO;
+using UnityEditor;
+using UnityEngine;
 
 namespace Assets.Scripts
 {
     class ScoreManager
     {
-        public static int MaxScore = 0;
-        public static int Score = 0;
+        public static Score ScoreObj;
+        public static int score = 0;
 
-        private static string file = "./Assets/score.txt";
+        private static string file = "./Assets/score.json";
         public static void LoadScore()
-        {            
-			if (!File.Exists(file))
-            {
-                File.Create(file);
-            }
-            string score = File.ReadAllText(file);
-            MaxScore = int.Parse(score);
+        {
+            string json = File.ReadAllText(file);
+            ScoreObj = JsonConvert.DeserializeObject<Score>(json);
         }
 
 		public static void SaveScore()
         {
-            File.WriteAllText(file, string.Format("{0}", Score + MaxScore));
+            string json = JsonConvert.SerializeObject(ScoreObj);
+            Debug.Log(json);
+            File.WriteAllText(file, json);
         }
     }
 }
