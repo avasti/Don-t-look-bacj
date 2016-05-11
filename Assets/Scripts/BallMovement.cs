@@ -19,16 +19,17 @@ public class BallMovement : MonoBehaviour {
         {
             Destroy(player);
         }
-        transform.localScale += new Vector3(0.001f, 0.001f, 0.001f);
+        transform.localScale += new Vector3(0.0001f, 0.0001f, 0);
     }    
 
     void OnCollisionEnter(Collision other)
     {
-        if (other.gameObject.name != "Terra")
+        if (other.gameObject.tag != "Ground")
         {
-            if (other.gameObject.tag == "Player")
+            if (other.gameObject.tag == "Player" || other.gameObject.tag == "GameController")
             {
-                SceneManager.LoadScene(0);
+                Assets.Scripts.ScoreManager.Score = 0;
+                SceneManager.LoadScene("Dead");
             }
             else
             {

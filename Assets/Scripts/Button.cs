@@ -3,6 +3,10 @@ using System.Collections;
 using UnityEngine.SceneManagement;
 
 public class Button : MonoBehaviour {
+    void Awake()
+    {
+        Assets.Scripts.ScoreManager.LoadScore();
+    }
 	public void OnClick () {
         switch (transform.gameObject.name)
         {
@@ -16,6 +20,9 @@ public class Button : MonoBehaviour {
 
             case "Exit":
                 Application.Quit();
+                break;
+            case "Menu":
+                SceneManager.LoadScene("Menu");
                 break;
         }
 	}
