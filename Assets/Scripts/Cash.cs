@@ -7,6 +7,6 @@ public class Cash : MonoBehaviour {
 
 	// Use this for initialization
 	void Start () {
-        GetComponent<Text>().text = "$" + ScoreManager.ScoreObj.points;
+        GetComponent<Text>().text = "$" + ScoreManager.Score;     
 	}
 }

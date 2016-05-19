@@ -13,11 +13,12 @@ public class Button : MonoBehaviour {
             case "Start":
                 SceneManager.LoadScene("SelectLevel");
                 break;
-
             case "Lvl 01":
                 SceneManager.LoadScene("Scene");
                 break;
-
+            case "Lvl 03":
+                SceneManager.LoadScene("Beach");
+                break;
             case "Exit":
                 Application.Quit();
                 break;

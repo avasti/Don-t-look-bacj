@@ -1,5 +1,4 @@
-﻿using Newtonsoft.Json;
-using System;
+﻿using System;
 using System.IO;
 using UnityEditor;
 using UnityEngine;
@@ -8,21 +7,26 @@ namespace Assets.Scripts
 {
     class ScoreManager
     {
-        public static Score ScoreObj;
+        public static int Score;
         public static int score = 0;
 
-        private static string file = "./Assets/score.json";
+        private static string file = "./Assets/score.txt";
         public static void LoadScore()
         {
-            string json = File.ReadAllText(file);
-            ScoreObj = JsonConvert.DeserializeObject<Score>(json);
+            if (!File.Exists(file))
+            {
+                File.Create(file);
+                File.WriteAllText(file, "0");
+            }
+            string sc = File.ReadAllText(file);
+            Score = int.Parse(sc);
         }
 
 		public static void SaveScore()
         {
-            string json = JsonConvert.SerializeObject(ScoreObj);
-            Debug.Log(json);
-            File.WriteAllText(file, json);
+            Score += score;
+            score = 0;
+            File.WriteAllText(file, string.Format("{0}", Score));
         }
     }
 }
