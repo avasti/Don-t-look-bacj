@@ -10,6 +10,7 @@ public class PlayerMovement : MonoBehaviour {
     public Text text;
     public Sprite speedUp, speedDown;
 
+    int lastX;
     Animator anim;
     float copyMaxSpeed;
     double time;
@@ -18,6 +19,7 @@ public class PlayerMovement : MonoBehaviour {
 	void Start () {
         copyMaxSpeed = speed;
         anim = GameObject.FindGameObjectWithTag("Player").GetComponent<Animator>();
+        lastX = (int)transform.position.x;
 	}
 	
 	// Update is called once per frame
@@ -27,11 +29,13 @@ public class PlayerMovement : MonoBehaviour {
             copyMaxSpeed = 30;
             speed = 30;
         }
-        transform.Translate(new Vector3(Time.deltaTime * 2 * speed, 0, 0));
+        lastX = (int)transform.position.x;
+        transform.Translate(new Vector3(Time.deltaTime * 2 * speed, 0, 0));       
+        
         if (Input.GetAxis("Jump") != 0 && isGround)
         {
             anim.SetBool("Jump", true);
-            GetComponent<Rigidbody>().AddForce(new Vector3(0, jumpSpeed, 0), ForceMode.Impulse);
+            GetComponent<Rigidbody>().AddForce(new Vector3(0, jumpSpeed * (speed / 4), 0), ForceMode.VelocityChange);
             isGround = false;
         }
         else
@@ -94,9 +98,18 @@ public class PlayerMovement : MonoBehaviour {
 
     void OnCollisionEnter(Collision other)
     {
-        if (other.gameObject.tag == "Ground")
+        if (other.gameObject.tag == "Ground" || other.gameObject.tag == "Platform")
         {
             isGround = true;
+        }
+        if (other.gameObject.tag == "Platform")
+        {
+            float dot = Vector3.Dot(other.contacts[0].normal, Vector3.right);
+            Debug.Log(dot);
+            if (dot < 0)
+            {
+                transform.position = new Vector3(transform.position.x + Time.deltaTime * 2 * speed, transform.position.y + .2f * jumpSpeed, transform.position.z);
+            }
         }
     }
 }
