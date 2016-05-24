@@ -23,7 +23,7 @@ public class PlayerMovement : MonoBehaviour {
 	}
 	
 	// Update is called once per frame
-	void Update() {
+	void FixedUpdate() {
         if (Application.isEditor && Input.GetKeyDown(KeyCode.G))
         {
             copyMaxSpeed = 30;
@@ -34,9 +34,9 @@ public class PlayerMovement : MonoBehaviour {
         
         if (Input.GetAxis("Jump") != 0 && isGround)
         {
-            anim.SetBool("Jump", true);
-            GetComponent<Rigidbody>().AddForce(new Vector3(0, jumpSpeed * (speed / 4), 0), ForceMode.VelocityChange);
             isGround = false;
+            anim.SetBool("Jump", true);
+            GetComponent<Rigidbody>().AddForce(new Vector3(0, jumpSpeed * (speed / 4), 0), ForceMode.VelocityChange);            
         }
         else
         {

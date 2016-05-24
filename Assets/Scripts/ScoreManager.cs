@@ -8,6 +8,7 @@ namespace Assets.Scripts
     class ScoreManager
     {
         public static int Score;
+        public static bool[] Unlocks = new bool[4];
         public static int score = 0;
 
         private static string file = "./Assets/score.txt";
@@ -15,18 +16,39 @@ namespace Assets.Scripts
         {
             if (!File.Exists(file))
             {
-                File.Create(file);
-                File.WriteAllText(file, "0");
+                string f = "0";
+                for (int i = 0; i < 4; ++i)
+                {
+                    f += "\n" + Unlocks[i];
+                }
+                File.WriteAllText(file, f);
             }
-            string sc = File.ReadAllText(file);
-            Score = int.Parse(sc);
+            string[] sc = File.ReadAllLines(file);
+            Score = int.Parse(sc[0]);
+            for (int i = 0; i < 4; ++i)
+            {
+                Unlocks[i] = bool.Parse(sc[i + 1]);
+            }
         }
 
 		public static void SaveScore()
         {
             Score += score;
             score = 0;
-            File.WriteAllText(file, string.Format("{0}", Score));
+            string f = "" + Score;
+            for (int i = 0; i < 4; ++i)
+            {
+                f += "\n" + Unlocks[i];
+            }
+            File.WriteAllText(file, f);
+        }
+
+        public static void DeleteScore()
+        {
+            for (int i = 0; i < Unlocks.Length; ++i)
+                Unlocks[i] = false;
+            File.Delete(file);
+            LoadScore();
         }
     }
 }

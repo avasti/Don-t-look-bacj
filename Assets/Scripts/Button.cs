@@ -25,6 +25,9 @@ public class Button : MonoBehaviour {
             case "Menu":
                 SceneManager.LoadScene("Menu");
                 break;
+            case "Store":
+                SceneManager.LoadScene("Store");
+                break;
         }
 	}
 }
