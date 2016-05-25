@@ -9,8 +9,9 @@ public class PlayerMovement : MonoBehaviour {
     public Sprite empty;
     public Text text;
     public Sprite speedUp, speedDown;
+	public AudioClip[] sounds;
+    public AudioSource source;
 
-    int lastX;
     Animator anim;
     float copyMaxSpeed;
     double time;
@@ -19,7 +20,6 @@ public class PlayerMovement : MonoBehaviour {
 	void Start () {
         copyMaxSpeed = speed;
         anim = GameObject.FindGameObjectWithTag("Player").GetComponent<Animator>();
-        lastX = (int)transform.position.x;
 	}
 	
 	// Update is called once per frame
@@ -29,14 +29,15 @@ public class PlayerMovement : MonoBehaviour {
             copyMaxSpeed = 30;
             speed = 30;
         }
-        lastX = (int)transform.position.x;
         transform.Translate(new Vector3(Time.deltaTime * 2 * speed, 0, 0));       
         
         if (Input.GetAxis("Jump") != 0 && isGround)
         {
             isGround = false;
             anim.SetBool("Jump", true);
-            GetComponent<Rigidbody>().AddForce(new Vector3(0, jumpSpeed * (speed / 4), 0), ForceMode.VelocityChange);            
+            GetComponent<Rigidbody>().AddForce(new Vector3(0, jumpSpeed * (speed / 4), 0), ForceMode.VelocityChange);
+            source.clip = sounds[1];
+            source.Play();
         }
         else
         {
@@ -69,7 +70,9 @@ public class PlayerMovement : MonoBehaviour {
             speed = 6;
             time = 2;
             img.sprite = speedUp;
-            Destroy(other.gameObject);            
+            Destroy(other.gameObject);
+            source.clip = sounds[2];
+            source.Play();
         }
         if (other.gameObject.tag == "Speed Down")
         {
@@ -82,6 +85,8 @@ public class PlayerMovement : MonoBehaviour {
         {
             Assets.Scripts.ScoreManager.score += 15;
             Destroy(other.gameObject);
+            source.clip = sounds[0];
+            source.Play();
         }
         if (other.gameObject.tag == "Flag")
         {
