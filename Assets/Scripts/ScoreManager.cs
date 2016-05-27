@@ -1,6 +1,4 @@
-﻿using System;
-using System.IO;
-using UnityEditor;
+﻿using System.IO;
 using UnityEngine;
 
 namespace Assets.Scripts
@@ -11,23 +9,12 @@ namespace Assets.Scripts
         public static bool[] Unlocks = new bool[4];
         public static int score = 0;
 
-        private static string file = "./Assets/score.txt";
         public static void LoadScore()
         {
-            if (!File.Exists(file))
-            {
-                string f = "0";
-                for (int i = 0; i < 4; ++i)
-                {
-                    f += "\n" + Unlocks[i];
-                }
-                File.WriteAllText(file, f);
-            }
-            string[] sc = File.ReadAllLines(file);
-            Score = int.Parse(sc[0]);
+            Score = PlayerPrefs.GetInt("score");
             for (int i = 0; i < 4; ++i)
             {
-                Unlocks[i] = bool.Parse(sc[i + 1]);
+                Unlocks[i] = PlayerPrefs.GetInt("unlock" + i) == 1;
             }
         }
 
@@ -35,19 +22,19 @@ namespace Assets.Scripts
         {
             Score += score;
             score = 0;
-            string f = "" + Score;
+            PlayerPrefs.SetInt("score", Score);
             for (int i = 0; i < 4; ++i)
             {
-                f += "\n" + Unlocks[i];
+                PlayerPrefs.SetInt("unlock" + i, Unlocks[i] ? 1 : 0);
             }
-            File.WriteAllText(file, f);
         }
 
         public static void DeleteScore()
         {
             for (int i = 0; i < Unlocks.Length; ++i)
                 Unlocks[i] = false;
-            File.Delete(file);
+            Score = 0;
+            SaveScore();
             LoadScore();
         }
     }

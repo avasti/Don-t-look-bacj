@@ -53,7 +53,6 @@ public class Store : MonoBehaviour {
 
     public void Reset()
     {
-        if (UnityEditor.EditorUtility.DisplayDialog("Reset game...", "Are you sure that you want to reset the game? You will lose all progress done.", "Reset", "Don't do this"))
         {
             ScoreManager.DeleteScore();
             UnityEngine.SceneManagement.SceneManager.LoadScene("Menu");

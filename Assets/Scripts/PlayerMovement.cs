@@ -26,8 +26,9 @@ public class PlayerMovement : MonoBehaviour {
 	void FixedUpdate() {
         if (Application.isEditor && Input.GetKeyDown(KeyCode.G))
         {
-            copyMaxSpeed = 30;
-            speed = 30;
+            Assets.Scripts.ScoreManager.Score += 2000;
+            Assets.Scripts.ScoreManager.SaveScore();
+            UnityEngine.SceneManagement.SceneManager.LoadScene("Menu");
         }
         transform.Translate(new Vector3(Time.deltaTime * 2 * speed, 0, 0));       
         
@@ -110,7 +111,6 @@ public class PlayerMovement : MonoBehaviour {
         if (other.gameObject.tag == "Platform")
         {
             float dot = Vector3.Dot(other.contacts[0].normal, Vector3.right);
-            Debug.Log(dot);
             if (dot < 0)
             {
                 transform.position = new Vector3(transform.position.x + Time.deltaTime * 2 * speed, transform.position.y + .2f * jumpSpeed, transform.position.z);
