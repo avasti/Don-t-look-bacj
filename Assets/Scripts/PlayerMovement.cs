@@ -36,7 +36,7 @@ public class PlayerMovement : MonoBehaviour {
         {
             isGround = false;
             anim.SetBool("Jump", true);
-            GetComponent<Rigidbody>().AddForce(new Vector3(0, jumpSpeed * (speed / 4), 0), ForceMode.VelocityChange);
+            GetComponent<Rigidbody>().AddForce(new Vector3(0, jumpSpeed, 0), ForceMode.VelocityChange);
             source.clip = sounds[1];
             source.Play();
         }

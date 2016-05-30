@@ -48,14 +48,13 @@ public class Store : MonoBehaviour {
                     break;
             }
             ScoreManager.SaveScore();
+            UnityEngine.SceneManagement.SceneManager.LoadScene("Store");
         }
     }
 
     public void Reset()
     {
-        {
-            ScoreManager.DeleteScore();
-            UnityEngine.SceneManagement.SceneManager.LoadScene("Menu");
-        }
+        ScoreManager.DeleteScore();
+        UnityEngine.SceneManagement.SceneManager.LoadScene("Menu");
     }
 }
