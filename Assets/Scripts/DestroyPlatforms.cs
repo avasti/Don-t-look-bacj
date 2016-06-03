@@ -19,4 +19,12 @@ public class DestroyPlatforms : MonoBehaviour {
             rb.useGravity = true;
         }
     }
+
+    void OnTriggerEnter(Collider col)
+    {
+        if (col.gameObject.tag == "Platform" || col.gameObject.tag == "Speed Down" || col.gameObject.tag == "Speed Up")
+        {
+            Destroy(col.gameObject);
+        }
+    }
 }

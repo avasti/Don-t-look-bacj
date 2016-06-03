@@ -10,7 +10,6 @@ public class Store : MonoBehaviour {
         
 	    for (int i = 0; i < 3; ++i)
         {
-            Debug.Log(buttons[i]);
             if (ScoreManager.Unlocks[i])
             {
                 buttons[i].GetComponentInChildren<Text>().text = "Purchased";

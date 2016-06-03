@@ -16,6 +16,8 @@ public class PlayerMovement : MonoBehaviour {
     float copyMaxSpeed;
     double time;
     bool isGround = false;
+    bool jumping = false;
+
 	// Use this for initialization
 	void Start () {
         copyMaxSpeed = speed;
@@ -26,14 +28,17 @@ public class PlayerMovement : MonoBehaviour {
 	void FixedUpdate() {
         if (Application.isEditor && Input.GetKeyDown(KeyCode.G))
         {
-            Assets.Scripts.ScoreManager.Score += 2000;
+            /*Assets.Scripts.ScoreManager.Score += 2000;
             Assets.Scripts.ScoreManager.SaveScore();
-            UnityEngine.SceneManagement.SceneManager.LoadScene("Menu");
+            UnityEngine.SceneManagement.SceneManager.LoadScene("Menu");*/
+            speed = 7;
+            copyMaxSpeed = 7;
         }
         transform.Translate(new Vector3(Time.deltaTime * 2 * speed, 0, 0));       
         
-        if (Input.GetAxis("Jump") != 0 && isGround)
+        if ((Input.GetAxis("Jump") != 0 || Input.touchCount > 0) && isGround && !jumping)
         {
+            jumping = true;
             isGround = false;
             anim.SetBool("Jump", true);
             GetComponent<Rigidbody>().AddForce(new Vector3(0, jumpSpeed, 0), ForceMode.VelocityChange);
@@ -43,6 +48,10 @@ public class PlayerMovement : MonoBehaviour {
         else
         {
             anim.SetBool("Jump", false);
+        }
+        if (Input.GetButtonUp("Jump"))
+        {
+            jumping = false;
         }
         anim.SetBool("Sprint", speed == 6);
         anim.SetBool("Ski", speed == 5);
@@ -104,7 +113,7 @@ public class PlayerMovement : MonoBehaviour {
 
     void OnCollisionEnter(Collision other)
     {
-        if (other.gameObject.tag == "Ground" || other.gameObject.tag == "Platform")
+        if (other.gameObject.tag == "Ground" || other.gameObject.tag == "Platform" || other.gameObject.tag == "Cotxe")
         {
             isGround = true;
         }

@@ -11,6 +11,7 @@ namespace Assets.Scripts
 
         public static void LoadScore()
         {
+            AudioListener.volume = 0.25f;
             Score = PlayerPrefs.GetInt("score");
             for (int i = 0; i < 4; ++i)
             {
