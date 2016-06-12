@@ -12,7 +12,7 @@ public class MenuSelector : MonoBehaviour {
                 break;
             case "Level 2":
                 if (ScoreManager.Unlocks[0])
-                    UnityEngine.SceneManagement.SceneManager.LoadScene("Forest?");
+                    UnityEngine.SceneManagement.SceneManager.LoadScene("Level2");
                 break;
             case "Level 3":
                 if (ScoreManager.Unlocks[1])
