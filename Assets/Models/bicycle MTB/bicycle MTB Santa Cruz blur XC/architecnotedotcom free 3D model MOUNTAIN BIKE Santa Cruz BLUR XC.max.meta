@@ -1,0 +1,254 @@
+fileFormatVersion: 2
+guid: 62f22300d375f50428feaa5f2741345a
+timeCreated: 1463941118
+licenseType: Free
+ModelImporter:
+  serializedVersion: 19
+  fileIDToRecycleName:
+    100000: //RootNode
+    100002: Camera01
+    100004: Camera01.Target
+    100006: Cylinder01
+    100008: Cylinder08
+    100010: Cylinder09
+    100012: Line01
+    100014: MTB 1 as gear.01
+    100016: MTB 1 as sadel.01
+    100018: MTB 1 as stang.01
+    100020: MTB 1 ban.01
+    100022: MTB 1 disc brake.01
+    100024: MTB 1 Gear pedal.01
+    100026: MTB 1 piston.01
+    100028: MTB 1 radian.01
+    100030: MTB 1 rangka sepeda 1 hitam.01
+    100032: MTB 1 rangka sepeda 1 krom.01
+    100034: MTB 1 rangka sepeda 1 merah.01
+    100036: MTB 1 rem.01
+    100038: MTB 1 sadel.01
+    100040: MTB 1 shock a.01
+    100042: MTB 1 shock b.01
+    100044: MTB 1 stang hitam.01
+    100046: MTB 1 stang merah.01
+    100048: MTB 1 Velg.01
+    100050: Object01
+    100052: Object02
+    100054: Object03
+    100056: Object04
+    100058: Object05
+    100060: Object06
+    100062: Object07
+    100064: Object08
+    100066: Object09
+    100068: Object10
+    100070: Plane02
+    100072: Plane03
+    100074: Spot01
+    100076: Spot01.Target
+    100078: VRayPlane02
+    400000: //RootNode
+    400002: Camera01
+    400004: Camera01.Target
+    400006: Cylinder01
+    400008: Cylinder08
+    400010: Cylinder09
+    400012: Line01
+    400014: MTB 1 as gear.01
+    400016: MTB 1 as sadel.01
+    400018: MTB 1 as stang.01
+    400020: MTB 1 ban.01
+    400022: MTB 1 disc brake.01
+    400024: MTB 1 Gear pedal.01
+    400026: MTB 1 piston.01
+    400028: MTB 1 radian.01
+    400030: MTB 1 rangka sepeda 1 hitam.01
+    400032: MTB 1 rangka sepeda 1 krom.01
+    400034: MTB 1 rangka sepeda 1 merah.01
+    400036: MTB 1 rem.01
+    400038: MTB 1 sadel.01
+    400040: MTB 1 shock a.01
+    400042: MTB 1 shock b.01
+    400044: MTB 1 stang hitam.01
+    400046: MTB 1 stang merah.01
+    400048: MTB 1 Velg.01
+    400050: Object01
+    400052: Object02
+    400054: Object03
+    400056: Object04
+    400058: Object05
+    400060: Object06
+    400062: Object07
+    400064: Object08
+    400066: Object09
+    400068: Object10
+    400070: Plane02
+    400072: Plane03
+    400074: Spot01
+    400076: Spot01.Target
+    400078: VRayPlane02
+    2300000: Cylinder01
+    2300002: Cylinder08
+    2300004: Cylinder09
+    2300006: Line01
+    2300008: MTB 1 as gear.01
+    2300010: MTB 1 as sadel.01
+    2300012: MTB 1 as stang.01
+    2300014: MTB 1 ban.01
+    2300016: MTB 1 disc brake.01
+    2300018: MTB 1 Gear pedal.01
+    2300020: MTB 1 piston.01
+    2300022: MTB 1 radian.01
+    2300024: MTB 1 rangka sepeda 1 hitam.01
+    2300026: MTB 1 rangka sepeda 1 krom.01
+    2300028: MTB 1 rangka sepeda 1 merah.01
+    2300030: MTB 1 rem.01
+    2300032: MTB 1 sadel.01
+    2300034: MTB 1 shock a.01
+    2300036: MTB 1 shock b.01
+    2300038: MTB 1 stang hitam.01
+    2300040: MTB 1 stang merah.01
+    2300042: MTB 1 Velg.01
+    2300044: Object01
+    2300046: Object02
+    2300048: Object03
+    2300050: Object04
+    2300052: Object05
+    2300054: Object06
+    2300056: Object07
+    2300058: Object08
+    2300060: Object09
+    2300062: Object10
+    2300064: Plane02
+    2300066: Plane03
+    3300000: Cylinder01
+    3300002: Cylinder08
+    3300004: Cylinder09
+    3300006: Line01
+    3300008: MTB 1 as gear.01
+    3300010: MTB 1 as sadel.01
+    3300012: MTB 1 as stang.01
+    3300014: MTB 1 ban.01
+    3300016: MTB 1 disc brake.01
+    3300018: MTB 1 Gear pedal.01
+    3300020: MTB 1 piston.01
+    3300022: MTB 1 radian.01
+    3300024: MTB 1 rangka sepeda 1 hitam.01
+    3300026: MTB 1 rangka sepeda 1 krom.01
+    3300028: MTB 1 rangka sepeda 1 merah.01
+    3300030: MTB 1 rem.01
+    3300032: MTB 1 sadel.01
+    3300034: MTB 1 shock a.01
+    3300036: MTB 1 shock b.01
+    3300038: MTB 1 stang hitam.01
+    3300040: MTB 1 stang merah.01
+    3300042: MTB 1 Velg.01
+    3300044: Object01
+    3300046: Object02
+    3300048: Object03
+    3300050: Object04
+    3300052: Object05
+    3300054: Object06
+    3300056: Object07
+    3300058: Object08
+    3300060: Object09
+    3300062: Object10
+    3300064: Plane02
+    3300066: Plane03
+    4300000: MTB 1 rangka sepeda 1 krom.01
+    4300002: MTB 1 rangka sepeda 1 merah.01
+    4300004: MTB 1 rangka sepeda 1 hitam.01
+    4300006: MTB 1 ban.01
+    4300008: MTB 1 Velg.01
+    4300010: MTB 1 as gear.01
+    4300012: MTB 1 radian.01
+    4300014: MTB 1 disc brake.01
+    4300016: MTB 1 piston.01
+    4300018: MTB 1 Gear pedal.01
+    4300020: MTB 1 as sadel.01
+    4300022: MTB 1 sadel.01
+    4300024: Cylinder01
+    4300026: Cylinder08
+    4300028: Cylinder09
+    4300030: Line01
+    4300032: Plane02
+    4300034: Plane03
+    4300036: MTB 1 shock a.01
+    4300038: MTB 1 shock b.01
+    4300040: MTB 1 as stang.01
+    4300042: Object06
+    4300044: Object05
+    4300046: Object04
+    4300048: Object07
+    4300050: Object02
+    4300052: Object03
+    4300054: MTB 1 stang merah.01
+    4300056: MTB 1 stang hitam.01
+    4300058: Object01
+    4300060: MTB 1 rem.01
+    4300062: Object08
+    4300064: Object09
+    4300066: Object10
+    9500000: //RootNode
+  materials:
+    importMaterials: 1
+    materialName: 0
+    materialSearch: 1
+  animations:
+    legacyGenerateAnimations: 4
+    bakeSimulation: 0
+    resampleRotations: 1
+    optimizeGameObjects: 0
+    motionNodeName: 
+    animationImportErrors: 
+    animationImportWarnings: 
+    animationRetargetingWarnings: 
+    animationDoRetargetingWarnings: 0
+    animationCompression: 1
+    animationRotationError: 0.5
+    animationPositionError: 0.5
+    animationScaleError: 0.5
+    animationWrapMode: 0
+    extraExposedTransformPaths: []
+    clipAnimations: []
+    isReadable: 1
+  meshes:
+    lODScreenPercentages: []
+    globalScale: 1
+    meshCompression: 0
+    addColliders: 0
+    importBlendShapes: 1
+    swapUVChannels: 0
+    generateSecondaryUV: 0
+    useFileUnits: 1
+    optimizeMeshForGPU: 1
+    keepQuads: 0
+    weldVertices: 1
+    secondaryUVAngleDistortion: 8
+    secondaryUVAreaDistortion: 15.000001
+    secondaryUVHardAngle: 88
+    secondaryUVPackMargin: 4
+    useFileScale: 1
+  tangentSpace:
+    normalSmoothAngle: 60
+    normalImportMode: 0
+    tangentImportMode: 3
+  importAnimation: 1
+  copyAvatar: 0
+  humanDescription:
+    human: []
+    skeleton: []
+    armTwist: 0.5
+    foreArmTwist: 0.5
+    upperLegTwist: 0.5
+    legTwist: 0.5
+    armStretch: 0.05
+    legStretch: 0.05
+    feetSpacing: 0
+    rootMotionBoneName: 
+    hasTranslationDoF: 0
+  lastHumanDescriptionAvatarSource: {instanceID: 0}
+  animationType: 2
+  humanoidOversampling: 1
+  additionalBone: 0
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 

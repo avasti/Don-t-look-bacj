@@ -28,11 +28,9 @@ public class PlayerMovement : MonoBehaviour {
 	void FixedUpdate() {
         if (Application.isEditor && Input.GetKeyDown(KeyCode.G))
         {
-            /*Assets.Scripts.ScoreManager.Score += 2000;
+            Assets.Scripts.ScoreManager.Score += 2000;
             Assets.Scripts.ScoreManager.SaveScore();
-            UnityEngine.SceneManagement.SceneManager.LoadScene("Menu");*/
-            speed = 7;
-            copyMaxSpeed = 7;
+            UnityEngine.SceneManagement.SceneManager.LoadScene("Menu");
         }
         transform.Translate(new Vector3(Time.deltaTime * 2 * speed, 0, 0));       
         
@@ -48,6 +46,11 @@ public class PlayerMovement : MonoBehaviour {
         else
         {
             anim.SetBool("Jump", false);
+        }
+        if (transform.position.y <= -70)
+        {
+            Assets.Scripts.ScoreManager.score = 0;
+            UnityEngine.SceneManagement.SceneManager.LoadScene("Dead");
         }
         if (Input.GetButtonUp("Jump"))
         {
