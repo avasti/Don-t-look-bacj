@@ -5,7 +5,6 @@ using UnityEngine.SceneManagement;
 public class BallMovement : MonoBehaviour {
     public float speed;
     public GameObject player;
-    public GameObject sphere;
 	// Use this for initialization
 	void Start () {
 	
@@ -22,8 +21,12 @@ public class BallMovement : MonoBehaviour {
         {
             speed = 4;
         }
-        transform.localScale += new Vector3(0.0001f, 0.0001f, 0);
-        sphere.transform.eulerAngles += new Vector3(0, 0, -1);
+        if (player.transform.position.x < transform.position.x)
+        {
+            Assets.Scripts.ScoreManager.score = 0;
+            SceneManager.LoadScene("Dead");
+        }
+        transform.localScale += new Vector3(0.0001f, 0.0001f, 0);        
     }    
 
     void OnCollisionEnter(Collision other)

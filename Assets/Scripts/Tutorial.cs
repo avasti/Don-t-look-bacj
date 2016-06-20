@@ -3,10 +3,11 @@ using UnityEngine.UI;
 
 public class Tutorial : MonoBehaviour {
     float time = 2000;
-    string[] lines;
+    public string[] lines;
     int lineCount = 0;
 	void Start () {
         GetComponent<Text>().text = lines[0];
+        lineCount = lines.Length;
 	}
 
 	void Update () {

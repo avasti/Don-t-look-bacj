@@ -22,6 +22,9 @@ public class MenuSelector : MonoBehaviour {
                 if (ScoreManager.Unlocks[2])
                     UnityEngine.SceneManagement.SceneManager.LoadScene("Scene");
                 break;
+            case "Tuto":
+                UnityEngine.SceneManagement.SceneManager.LoadScene("Intro");
+                break;
         }
     }
 }

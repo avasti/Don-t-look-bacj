@@ -28,9 +28,7 @@ public class PlayerMovement : MonoBehaviour {
 	void FixedUpdate() {
         if (Application.isEditor && Input.GetKeyDown(KeyCode.G))
         {
-            Assets.Scripts.ScoreManager.Score += 2000;
-            Assets.Scripts.ScoreManager.SaveScore();
-            UnityEngine.SceneManagement.SceneManager.LoadScene("Menu");
+            GameObject.FindGameObjectWithTag("ball").GetComponent<SphereCollider>().enabled = false;
         }
         transform.Translate(new Vector3(Time.deltaTime * 2 * speed, 0, 0));       
         
@@ -47,7 +45,7 @@ public class PlayerMovement : MonoBehaviour {
         {
             anim.SetBool("Jump", false);
         }
-        if (transform.position.y <= -70)
+        if (transform.position.y <= -400)
         {
             Assets.Scripts.ScoreManager.score = 0;
             UnityEngine.SceneManagement.SceneManager.LoadScene("Dead");
@@ -106,6 +104,11 @@ public class PlayerMovement : MonoBehaviour {
             Assets.Scripts.ScoreManager.SaveScore();
             UnityEngine.SceneManagement.SceneManager.LoadScene("Menu");
         }
+        if (other.gameObject.tag == "EndFlag")
+        {
+            Assets.Scripts.ScoreManager.SaveScore();
+            UnityEngine.SceneManagement.SceneManager.LoadScene("Final");
+        }
         if (other.gameObject.tag == "Ski")
         {
             speed = 5;
@@ -123,7 +126,7 @@ public class PlayerMovement : MonoBehaviour {
         if (other.gameObject.tag == "Platform")
         {
             float dot = Vector3.Dot(other.contacts[0].normal, Vector3.right);
-            if (dot < 0)
+            if (dot < -0.5)
             {
                 transform.position = new Vector3(transform.position.x + Time.deltaTime * 2 * speed, transform.position.y + .2f * jumpSpeed, transform.position.z);
             }
