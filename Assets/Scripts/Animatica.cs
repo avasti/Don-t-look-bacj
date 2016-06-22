@@ -16,12 +16,7 @@ public class Animatica : MonoBehaviour {
             UnityEngine.SceneManagement.SceneManager.LoadScene("Menu");
         }
 	}
-#elif UNITY_WEBGL
-    void Start()
-    {
-        UnityEngine.SceneManagement.SceneManager.LoadScene("Menu");
-    }
-#else
+#elif UNITY_ANDROID
     public string animatica;
     void Start() {
         StartCoroutine(PlayVideo());
@@ -31,6 +26,11 @@ public class Animatica : MonoBehaviour {
     {
         Handheld.PlayFullScreenMovie(animatica);
         yield return new WaitForEndOfFrame();
+        UnityEngine.SceneManagement.SceneManager.LoadScene("Menu");
+    }    
+#else
+    void Start()
+    {
         UnityEngine.SceneManagement.SceneManager.LoadScene("Menu");
     }
 #endif

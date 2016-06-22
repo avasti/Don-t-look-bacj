@@ -67,6 +67,7 @@ public class PlayerMovement : MonoBehaviour {
             time -= Time.deltaTime;
         }		
         text.text = "Score: " + Assets.Scripts.ScoreManager.score;
+        anim.SetBool("Hit", false);
 	}
 
     void OnTriggerEnter(Collider other)
@@ -87,6 +88,7 @@ public class PlayerMovement : MonoBehaviour {
         }
         if (other.gameObject.tag == "Speed Down")
         {
+            anim.SetBool("Hit", true);
             speed = 3f;
             img.sprite = speedDown;
             time = 2;

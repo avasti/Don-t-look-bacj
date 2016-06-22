@@ -13,7 +13,7 @@ public class BallMovement : MonoBehaviour {
 	// Update is called once per frame
 	void FixedUpdate() {
         transform.Translate(new Vector3(Time.deltaTime * 2 * speed, 0, 0));          
-        if (player.transform.position.x - transform.position.x > 10)
+        if (player.transform.position.x - transform.position.x > 15)
         {
             speed = 10;
         }
